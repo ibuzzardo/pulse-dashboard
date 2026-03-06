@@ -1,88 +1,42 @@
 # Pulse Dashboard
 
-Real-time analytics dashboard — built autonomously by Dark Factory v4
-
-## Tech Stack
-
-- **React 18** — UI framework
-- **TypeScript** — strict mode
-- **Vite** — build tool
-- **Tailwind CSS** — styling
-- **Recharts** — data visualization
-- **Lucide React** — icons
-- **Zod** — schema validation
+A dark-themed analytics dashboard built with Vite + React 18 + TypeScript + Tailwind CSS + Recharts.
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+
-- npm 9+
-
-### Installation
-
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build
+## Build
 
 ```bash
 npm run build
 ```
 
-### Preview production build
+## Preview
 
 ```bash
 npm run preview
 ```
 
-## Environment Variables
+## Tech Stack
 
-Copy `.env.example` to `.env` and fill in the values:
+- Vite 5
+- React 18
+- TypeScript (strict mode)
+- Tailwind CSS
+- Recharts
+- Lucide React
 
-```bash
-cp .env.example .env
-```
+## Features
 
-| Variable | Description |
-|---|---|
-| `VITE_API_BASE_URL` | Base URL for the analytics API |
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── conversion-rate-chart.tsx
-│   ├── header.tsx
-│   ├── overview-card.tsx
-│   ├── sidebar.tsx
-│   ├── top-projects-table.tsx
-│   └── traffic-chart.tsx
-├── utils/
-│   └── format-number.ts
-├── app.tsx
-├── index.css
-├── main.tsx
-├── mock-data.ts
-└── types.ts
-```
-
-## Design System
-
-- **Background**: `#0B1220`
-- **Primary**: `#60A5FA`
-- **Secondary**: `#A78BFA`
-- **Accent**: `#22C55E`
-- **Destructive**: `#F87171`
-- **Border**: `#1F2937`
-- **Font**: Inter
+- Dark-themed analytics dashboard
+- Sidebar navigation
+- 4 KPI stat cards
+- Traffic Overview area chart
+- Work Distribution donut chart
+- Top Projects table (8 rows)
+- Activity Feed with 15 recent events
+- Responsive mobile layout

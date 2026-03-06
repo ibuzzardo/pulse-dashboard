@@ -68,13 +68,12 @@ export function Sidebar(): React.ReactElement {
         {/* User avatar */}
         <div className="mt-3 flex items-center gap-3 rounded-lg px-3 py-2">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#A78BFA]/20 text-xs font-semibold text-[#A78BFA]">
-            SC
+            JD
           </div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-[#E5E7EB]">Sarah Chen</p>
-            <p className="truncate text-xs text-[#9CA3AF]">Lead Engineer</p>
+            <p className="truncate text-sm font-medium text-[#E5E7EB]">Jane Doe</p>
+            <p className="truncate text-xs text-[#9CA3AF]">Admin</p>
           </div>
-          <div className="ml-auto h-2 w-2 rounded-full bg-[#22C55E]" />
         </div>
       </div>
     </div>

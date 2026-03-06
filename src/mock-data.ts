@@ -1,4 +1,4 @@
-import type { KpiMetric, TrafficPoint, ConversionPoint, Project, TeamMember } from '@/types';
+import type { KpiMetric, TrafficPoint, ConversionPoint, Project, TeamMember, ActivityItem, WorkDistributionItem } from '@/types';
 
 export const kpiMetrics: KpiMetric[] = [
   {
@@ -144,6 +144,28 @@ export const projects: Project[] = [
     revenue: '$79,450',
     lastUpdated: '30 minutes ago',
   },
+  {
+    id: 'proj-007',
+    name: 'Titan Gateway',
+    owner: 'Alex Novak',
+    status: 'active',
+    progress: 63,
+    sessions: 178900,
+    conversion: 3.7,
+    revenue: '$56,230',
+    lastUpdated: '4 hours ago',
+  },
+  {
+    id: 'proj-008',
+    name: 'Luna Search',
+    owner: 'Maya Patel',
+    status: 'active',
+    progress: 22,
+    sessions: 67400,
+    conversion: 2.8,
+    revenue: '$19,870',
+    lastUpdated: '6 hours ago',
+  },
 ];
 
 export const teamMembers: TeamMember[] = [
@@ -153,4 +175,135 @@ export const teamMembers: TeamMember[] = [
   { id: 'tm-004', name: 'Jordan Kim', role: 'Backend Engineer', avatar: 'JK', status: 'online' },
   { id: 'tm-005', name: 'Elena Vasquez', role: 'Marketing Lead', avatar: 'EV', status: 'offline' },
   { id: 'tm-006', name: 'David Okafor', role: 'DevOps Engineer', avatar: 'DO', status: 'online' },
+];
+
+export const activityItems: ActivityItem[] = [
+  {
+    id: 'act-001',
+    type: 'deploy',
+    message: 'Sarah Chen deployed Atlas Migration to production',
+    user: 'Sarah Chen',
+    project: 'Atlas Migration',
+    timestamp: '2 minutes ago',
+  },
+  {
+    id: 'act-002',
+    type: 'commit',
+    message: 'Marcus Webb committed 3 files to Orion Rebrand',
+    user: 'Marcus Webb',
+    project: 'Orion Rebrand',
+    timestamp: '15 minutes ago',
+  },
+  {
+    id: 'act-003',
+    type: 'alert',
+    message: 'Priya Sharma flagged performance regression in Nexus Platform',
+    user: 'Priya Sharma',
+    project: 'Nexus Platform',
+    timestamp: '1 hour ago',
+  },
+  {
+    id: 'act-004',
+    type: 'review',
+    message: 'Jordan Kim approved code review for Helix Analytics',
+    user: 'Jordan Kim',
+    project: 'Helix Analytics',
+    timestamp: '2 hours ago',
+  },
+  {
+    id: 'act-005',
+    type: 'merge',
+    message: 'Elena Vasquez merged feature branch into Vega Commerce',
+    user: 'Elena Vasquez',
+    project: 'Vega Commerce',
+    timestamp: '3 hours ago',
+  },
+  {
+    id: 'act-006',
+    type: 'deploy',
+    message: 'David Okafor deployed hotfix to Solaris CRM staging',
+    user: 'David Okafor',
+    project: 'Solaris CRM',
+    timestamp: '4 hours ago',
+  },
+  {
+    id: 'act-007',
+    type: 'commit',
+    message: 'Alex Novak committed API gateway changes to Titan Gateway',
+    user: 'Alex Novak',
+    project: 'Titan Gateway',
+    timestamp: '5 hours ago',
+  },
+  {
+    id: 'act-008',
+    type: 'review',
+    message: 'Maya Patel requested review on Luna Search indexing module',
+    user: 'Maya Patel',
+    project: 'Luna Search',
+    timestamp: '6 hours ago',
+  },
+  {
+    id: 'act-009',
+    type: 'merge',
+    message: 'Sarah Chen merged authentication refactor into Atlas Migration',
+    user: 'Sarah Chen',
+    project: 'Atlas Migration',
+    timestamp: '7 hours ago',
+  },
+  {
+    id: 'act-010',
+    type: 'alert',
+    message: 'Marcus Webb flagged broken build in Orion Rebrand CI pipeline',
+    user: 'Marcus Webb',
+    project: 'Orion Rebrand',
+    timestamp: '8 hours ago',
+  },
+  {
+    id: 'act-011',
+    type: 'commit',
+    message: 'Jordan Kim committed database migration scripts to Helix Analytics',
+    user: 'Jordan Kim',
+    project: 'Helix Analytics',
+    timestamp: '10 hours ago',
+  },
+  {
+    id: 'act-012',
+    type: 'deploy',
+    message: 'Priya Sharma deployed data pipeline update to Nexus Platform',
+    user: 'Priya Sharma',
+    project: 'Nexus Platform',
+    timestamp: '12 hours ago',
+  },
+  {
+    id: 'act-013',
+    type: 'review',
+    message: 'David Okafor reviewed infrastructure changes for Titan Gateway',
+    user: 'David Okafor',
+    project: 'Titan Gateway',
+    timestamp: '14 hours ago',
+  },
+  {
+    id: 'act-014',
+    type: 'merge',
+    message: 'Alex Novak merged search algorithm improvements into Luna Search',
+    user: 'Alex Novak',
+    project: 'Luna Search',
+    timestamp: '18 hours ago',
+  },
+  {
+    id: 'act-015',
+    type: 'commit',
+    message: 'Elena Vasquez committed checkout flow redesign to Vega Commerce',
+    user: 'Elena Vasquez',
+    project: 'Vega Commerce',
+    timestamp: '1 day ago',
+  },
+];
+
+export const workDistribution: WorkDistributionItem[] = [
+  { category: 'Development', hours: 496, percentage: 40, color: '#60A5FA' },
+  { category: 'Design', hours: 248, percentage: 20, color: '#A78BFA' },
+  { category: 'Testing', hours: 186, percentage: 15, color: '#22C55E' },
+  { category: 'Planning', hours: 186, percentage: 15, color: '#F59E0B' },
+  { category: 'DevOps', hours: 124, percentage: 10, color: '#F87171' },
 ];

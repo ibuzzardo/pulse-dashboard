@@ -74,15 +74,20 @@ export function TrafficChart({ data }: TrafficChartProps): React.ReactElement {
                 fontSize: '12px',
               }}
               labelStyle={{ color: '#9CA3AF', marginBottom: '4px' }}
-              formatter={(value: number) => [value.toLocaleString(), '']}
+              formatter={(value: number, name: string) => [
+                formatYAxis(value),
+                name === 'sessions' ? 'Sessions' : name === 'pageViews' ? 'Page Views' : 'Unique Visitors',
+              ]}
             />
             <Legend
-              wrapperStyle={{ fontSize: '12px', color: '#9CA3AF', paddingTop: '12px' }}
+              wrapperStyle={{ fontSize: '12px', color: '#9CA3AF', paddingTop: '8px' }}
+              formatter={(value: string) =>
+                value === 'sessions' ? 'Sessions' : value === 'pageViews' ? 'Page Views' : 'Unique Visitors'
+              }
             />
             <Area
               type="monotone"
               dataKey="sessions"
-              name="Sessions"
               stroke="#60A5FA"
               strokeWidth={2}
               fill="url(#colorSessions)"
@@ -92,7 +97,6 @@ export function TrafficChart({ data }: TrafficChartProps): React.ReactElement {
             <Area
               type="monotone"
               dataKey="pageViews"
-              name="Page Views"
               stroke="#A78BFA"
               strokeWidth={2}
               fill="url(#colorPageViews)"
@@ -102,7 +106,6 @@ export function TrafficChart({ data }: TrafficChartProps): React.ReactElement {
             <Area
               type="monotone"
               dataKey="uniqueVisitors"
-              name="Unique Visitors"
               stroke="#22C55E"
               strokeWidth={2}
               fill="url(#colorUniqueVisitors)"

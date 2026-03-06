@@ -71,78 +71,81 @@ export function TopProjectsTable({ projects }: TopProjectsTableProps): React.Rea
               <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Owner</th>
               <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Status</th>
               <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Progress</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Sessions</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Conv. Rate</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Revenue</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Updated</th>
+              <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Sessions</th>
+              <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Conv.</th>
+              <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Revenue</th>
+              <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-[#9CA3AF] border-b border-[#1F2937] bg-[#0F172A]">Updated</th>
             </tr>
           </thead>
           <tbody>
-            {projects.map((project) => {
-              const status = statusConfig[project.status];
-              return (
-                <tr key={project.id} className="border-b border-[#1F2937] hover:bg-white/5 transition-colors">
-                  <td className="px-4 py-3 text-sm text-[#E5E7EB] font-medium">{project.name}</td>
-                  <td className="px-4 py-3 text-sm text-[#9CA3AF]">
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#A78BFA]/20 text-[10px] font-semibold text-[#A78BFA]">
-                        {project.owner.split(' ').map(n => n[0]).join('')}
-                      </div>
-                      {project.owner}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${status.className}`}>
-                      {status.label}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 min-w-[140px]">
-                    <ProgressBar value={project.progress} status={project.status} />
-                  </td>
-                  <td className="px-4 py-3 text-sm text-[#9CA3AF]">{project.sessions.toLocaleString()}</td>
-                  <td className="px-4 py-3 text-sm text-[#9CA3AF]">{project.conversion}%</td>
-                  <td className="px-4 py-3 text-sm text-[#E5E7EB] font-medium">{project.revenue}</td>
-                  <td className="px-4 py-3 text-sm text-[#9CA3AF]">{project.lastUpdated}</td>
-                </tr>
-              );
-            })}
+            {projects.map((project, index) => (
+              <tr
+                key={project.id}
+                className={`transition-colors hover:bg-white/[0.02] ${
+                  index < projects.length - 1 ? 'border-b border-[#1F2937]' : ''
+                }`}
+              >
+                <td className="px-4 py-3">
+                  <span className="font-medium text-[#E5E7EB]">{project.name}</span>
+                </td>
+                <td className="px-4 py-3 text-[#9CA3AF]">{project.owner}</td>
+                <td className="px-4 py-3">
+                  <span
+                    className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+                      statusConfig[project.status].className
+                    }`}
+                  >
+                    {statusConfig[project.status].label}
+                  </span>
+                </td>
+                <td className="px-4 py-3 min-w-[140px]">
+                  <ProgressBar value={project.progress} status={project.status} />
+                </td>
+                <td className="px-4 py-3 text-right text-[#9CA3AF]">
+                  {project.sessions.toLocaleString()}
+                </td>
+                <td className="px-4 py-3 text-right text-[#9CA3AF]">{project.conversion}%</td>
+                <td className="px-4 py-3 text-right font-medium text-[#E5E7EB]">{project.revenue}</td>
+                <td className="px-4 py-3 text-right text-xs text-[#6B7280]">{project.lastUpdated}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
 
-      {/* Mobile cards */}
+      {/* Mobile list */}
       <div className="md:hidden divide-y divide-[#1F2937]">
-        {projects.map((project) => {
-          const status = statusConfig[project.status];
-          return (
-            <div key={project.id} className="p-4 space-y-3">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-medium text-[#E5E7EB]">{project.name}</p>
-                  <p className="text-xs text-[#9CA3AF] mt-0.5">{project.owner}</p>
-                </div>
-                <span className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${status.className}`}>
-                  {status.label}
-                </span>
+        {projects.map((project) => (
+          <div key={project.id} className="px-4 py-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="font-medium text-[#E5E7EB]">{project.name}</span>
+              <span
+                className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+                  statusConfig[project.status].className
+                }`}
+              >
+                {statusConfig[project.status].label}
+              </span>
+            </div>
+            <div className="text-sm text-[#9CA3AF]">{project.owner}</div>
+            <ProgressBar value={project.progress} status={project.status} />
+            <div className="grid grid-cols-3 gap-2 text-xs">
+              <div>
+                <p className="text-[#6B7280]">Sessions</p>
+                <p className="text-[#E5E7EB] font-medium">{project.sessions.toLocaleString()}</p>
               </div>
-              <ProgressBar value={project.progress} status={project.status} />
-              <div className="grid grid-cols-3 gap-2 text-xs">
-                <div>
-                  <p className="text-[#9CA3AF]">Sessions</p>
-                  <p className="text-[#E5E7EB] font-medium">{(project.sessions / 1000).toFixed(0)}K</p>
-                </div>
-                <div>
-                  <p className="text-[#9CA3AF]">Conv.</p>
-                  <p className="text-[#E5E7EB] font-medium">{project.conversion}%</p>
-                </div>
-                <div>
-                  <p className="text-[#9CA3AF]">Revenue</p>
-                  <p className="text-[#E5E7EB] font-medium">{project.revenue}</p>
-                </div>
+              <div>
+                <p className="text-[#6B7280]">Conv.</p>
+                <p className="text-[#E5E7EB] font-medium">{project.conversion}%</p>
+              </div>
+              <div>
+                <p className="text-[#6B7280]">Revenue</p>
+                <p className="text-[#E5E7EB] font-medium">{project.revenue}</p>
               </div>
             </div>
-          );
-        })}
+            <p className="text-xs text-[#6B7280]">Updated {project.lastUpdated}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -89,11 +89,11 @@ export function ConversionRateChart({ data }: ConversionRateChartProps): React.R
         </div>
         <div className="text-center">
           <p className="text-xs text-[#9CA3AF]">Peak</p>
-          <p className="text-sm font-semibold text-[#22C55E]">4.40%</p>
+          <p className="text-sm font-semibold text-[#E5E7EB]">4.40%</p>
         </div>
         <div className="text-center">
           <p className="text-xs text-[#9CA3AF]">Goal</p>
-          <p className="text-sm font-semibold text-[#F59E0B]">4.00%</p>
+          <p className="text-sm font-semibold text-[#E5E7EB]">4.00%</p>
         </div>
       </div>
     </div>
