@@ -42,3 +42,19 @@ export interface TeamMember {
 }
 
 export type DeltaDirection = 'positive' | 'negative' | 'neutral';
+
+export interface ActivityItem {
+  id: string;
+  type: 'deploy' | 'commit' | 'review' | 'alert' | 'merge';
+  message: string;
+  user: string;
+  project: string;
+  timestamp: string;
+}
+
+export interface WorkDistributionItem {
+  category: string;
+  hours: number;
+  percentage: number;
+  color: string;
+}
